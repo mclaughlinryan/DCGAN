@@ -31,7 +31,6 @@ dataset, testset, _ = torch.utils.data.dataset.random_split(dataset, [int(set_fr
                                                                       int((1 - (3 / 2) * set_fraction) * len(dataset))],
                                                             generator=torch.Generator().manual_seed(42))
 
-
 # Partial data to train GAN on for aim of project
 class transformGaussianNoise():
     def __init__(self, mean=0, std=1):
@@ -40,7 +39,6 @@ class transformGaussianNoise():
 
     def __call__(self, tensor):
         return tensor + torch.randn(tensor.size()) * self.std + self.mean
-
 
 # Addition of Gaussian noise to image set
 data_noise = torchvision.datasets.CIFAR10(root='./data', train=True, download=True,
@@ -119,7 +117,6 @@ plt.title("Training Images (Noised data)")
 plt.imshow(np.transpose(vutils.make_grid(imperfect_batch[0].to(device)[:batch_size], padding=2, normalize=True).cpu(),
                         (1, 2, 0)))
 
-
 # custom weights initialization for generator and discriminator network
 def weights_init(m):
     classname = m.__class__.__name__
@@ -128,7 +125,6 @@ def weights_init(m):
     elif classname.find('BatchNorm') != -1:
         nn.init.normal_(m.weight.data, 1.0, 0.02)
         nn.init.constant_(m.bias.data, 0)
-
 
 # DCGAN generator
 class Generator(nn.Module):
@@ -152,7 +148,6 @@ class Generator(nn.Module):
     def forward(self, input):
         return self.main(input)
 
-
 # Create the generator
 netG = Generator(ngpu).to(device)
 
@@ -166,7 +161,6 @@ netG.apply(weights_init)
 
 # Print the model
 print(netG)
-
 
 # DCGAN discriminator
 class Discriminator(nn.Module):
@@ -188,7 +182,6 @@ class Discriminator(nn.Module):
 
     def forward(self, input):
         return self.main(input)
-
 
 # Create the discriminator
 netD = Discriminator(ngpu).to(device)
@@ -220,7 +213,6 @@ optimizerD = optim.Adam(netD.parameters(), lr=lr, betas=(beta1, 0.999))
 optimizerG = optim.Adam(netG.parameters(), lr=lr, betas=(beta1, 0.999))
 
 # Training Loop
-
 # Lists to keep track of progress
 img_list = []
 img_list_real = []
@@ -233,7 +225,6 @@ print("Starting Training Loop...")
 for epoch in range(num_epochs):
     # For each batch in the dataloader
     for i, data in enumerate(dataloader, 0):
-
         # Update D network: maximize log(D(x)) + log(1 - D(G(z)))
         # Train with real batch
         netD.zero_grad()
@@ -321,7 +312,6 @@ plt.show()
 
 # Testing Loop on ground truth data
 # Optimizers not utilized in testing phases as just want to assess performance and do not want to further train the network
-
 # Lists to keep track of generated output and loss values during testing phases
 img_list_test = [[]] * 4
 img_list_real_test = [[]] * 4
@@ -334,7 +324,6 @@ print("Starting Testing Loop...")
 for epoch in range(1):
     # For each batch in the dataloader
     for i, data in enumerate(testloader, 0):
-
         # Update D network: maximize log(D(x)) + log(1 - D(G(z)))
         # Test with real batch
         # Format batch
@@ -385,7 +374,6 @@ for epoch in range(1):
         print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f' % (errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
 
 # Testing Loop on noised data
-
 iters = 0
 
 print("Starting Testing Loop...")
@@ -393,7 +381,6 @@ print("Starting Testing Loop...")
 for epoch in range(1):
     # For each batch in the dataloader
     for i, data in enumerate(testloader_imperfect, 0):
-
         # Update D network: maximize log(D(x)) + log(1 - D(G(z)))
         # Test with real batch
         # Format batch
@@ -523,7 +510,6 @@ optimizerD = optim.Adam(netD2.parameters(), lr=lr, betas=(beta1, 0.999))
 optimizerG = optim.Adam(netG2.parameters(), lr=lr, betas=(beta1, 0.999))
 
 # Training Loop
-
 # Lists to keep track of progress
 img_list = []
 img_list_real = []
@@ -536,7 +522,6 @@ print("Starting Training Loop...")
 for epoch in range(num_epochs):
     # For each batch in the dataloader
     for i, data in enumerate(dataloader_imperfect, 0):
-
         # Update D network: maximize log(D(x)) + log(1 - D(G(z)))
         # Train with real batch
         netD2.zero_grad()
@@ -623,7 +608,6 @@ plt.imshow(np.transpose(img_list[-1].detach().cpu(), (1, 2, 0)))
 plt.show()
 
 # Testing Loop on noised data
-
 iters = 0
 
 print("Starting Testing Loop...")
@@ -631,7 +615,6 @@ print("Starting Testing Loop...")
 for epoch in range(1):
     # For each batch in the dataloader
     for i, data in enumerate(testloader_imperfect, 0):
-
         # Update D network: maximize log(D(x)) + log(1 - D(G(z)))
         # Test with real batch
         # Format batch
@@ -684,7 +667,6 @@ for epoch in range(1):
         print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f' % (errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
 
 # Testing Loop on ground truth data
-
 iters = 0
 
 print("Starting Testing Loop...")
@@ -692,7 +674,6 @@ print("Starting Testing Loop...")
 for epoch in range(1):
     # For each batch in the dataloader
     for i, data in enumerate(testloader, 0):
-
         # Update D network: maximize log(D(x)) + log(1 - D(G(z)))
         # Test with real batch
         # Format batch
@@ -790,7 +771,6 @@ plt.imshow(np.transpose(img_list_test[3][-1].detach().cpu(), (1, 2, 0)))
 plt.show()
 
 # Overall comparison of GAN testing after training with complete samples vs. partial/noisy samples
-
 plt.figure(figsize=(16, 16))
 plt.axis("off")
 plt.title("Real Images")
