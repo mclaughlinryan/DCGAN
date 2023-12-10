@@ -283,8 +283,9 @@ for epoch in range(num_epochs):
 
         iters += 1
 
-    if epoch % 10 == 0:
-        print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f' % (errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
+        if epoch % 10 == 0:
+            print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f'
+                  % (epoch, num_epochs, i, len(dataloader), errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
 
 # Plot of MSE loss from networks over the course of training
 plt.figure(figsize=(10, 5))
@@ -370,8 +371,9 @@ for epoch in range(1):
 
         iters += 1
 
-    if epoch % 10 == 0:
-        print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f' % (errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
+        if epoch % 10 == 0:
+            print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f'
+                  % (epoch, num_epochs, i, len(dataloader), errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
 
 # Testing Loop on noised data
 iters = 0
@@ -427,8 +429,9 @@ for epoch in range(1):
 
         iters += 1
 
-    if epoch % 10 == 0:
-        print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f' % (errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
+        if epoch % 10 == 0:
+            print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f'
+                  % (epoch, num_epochs, i, len(dataloader), errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
 
 # Plot of MSE loss from networks over course of testing
 plt.figure(figsize=(10, 5))
@@ -580,8 +583,9 @@ for epoch in range(num_epochs):
 
         iters += 1
 
-    if epoch % 10 == 0:
-        print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f' % (errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
+        if epoch % 10 == 0:
+            print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f'
+                  % (epoch, num_epochs, i, len(dataloader), errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
 
 # Plot of MSE loss from networks over the course of training
 plt.figure(figsize=(10, 5))
@@ -663,8 +667,9 @@ for epoch in range(1):
 
         iters += 1
 
-    if epoch % 10 == 0:
-        print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f' % (errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
+        if epoch % 10 == 0:
+            print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f'
+                  % (epoch, num_epochs, i, len(dataloader), errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
 
 # Testing Loop on ground truth data
 iters = 0
@@ -720,8 +725,9 @@ for epoch in range(1):
 
         iters += 1
 
-    if epoch % 10 == 0:
-        print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f' % (errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
+        if epoch % 10 == 0:
+            print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f'
+                  % (epoch, num_epochs, i, len(dataloader), errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
 
 # Plot of MSE loss from networks over the course noised set testing
 plt.figure(figsize=(10, 5))
