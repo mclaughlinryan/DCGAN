@@ -10,7 +10,7 @@ CIFAR-10 images:
 
 &nbsp;
 
-Output images from the DCGAN generator:
+Output images from the generator:
 
 <img width="600" alt="dcgan 4 2" src="https://github.com/mclaughlinryan/DCGAN/assets/150348966/20ae09f1-ce38-469e-b470-460306eed835">
 
