@@ -1,3 +1,3 @@
 # DCGAN
 
-This program uses a DCGAN to generate images that are representative of the CIFAR-10 dataset. The network is used to generate images from regular CIFAR-10 images and CIFAR-10 images with added noise.
+This program trains a DCGAN on the CIFAR-10 dataset to achieve generation of images that are representative of the dataset. It is also trained on noised CIFAR-10 images to see if the generator recapitulates the noise in the images in its output.
