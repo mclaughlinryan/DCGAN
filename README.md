@@ -23,3 +23,5 @@ CIFAR-10 images with added Gaussian noise:
 &nbsp;
 
 Output images from the generator:
+
+<img width="600" alt="dcgan 11 2" src="https://github.com/mclaughlinryan/DCGAN/assets/150348966/1c98bbed-dc45-49fa-b667-9933873b74aa">
