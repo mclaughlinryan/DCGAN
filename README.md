@@ -1,6 +1,6 @@
 # DCGAN
 
-This program was written with PyTorch and trains a DCGAN on the CIFAR-10 dataset to achieve generation of images that are representative of the dataset. It is also trained on noised CIFAR-10 images to see if the generator recapitulates the noise in its output images. The model training for each of the scenarios is done using image batces and a mean squared error loss function with an Adam optimizer as the optimizer used.
+This program was written with PyTorch and trains a DCGAN on the CIFAR-10 dataset to achieve generation of images that are representative of the dataset. It is also trained on noised CIFAR-10 images to see if the generator recapitulates the noise in its output images. The model training for each of the scenarios is done using image batces and a mean squared error loss function with an Adam optimizer.
 
 ### Training on CIFAR-10 images
 
