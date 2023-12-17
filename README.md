@@ -4,6 +4,8 @@ This program trains a DCGAN on the CIFAR-10 dataset to achieve generation of ima
 
 #### Training on CIFAR-10 images
 
-Images from the CIFAR-10 dataset:
+CIFAR-10 images:
 
 <img width="600" alt="dcgan 4 1" src="https://github.com/mclaughlinryan/DCGAN/assets/150348966/8684d357-b810-497b-928d-5cd51135ccd2">
+
+Output images from the DCGAN generator:
