@@ -16,7 +16,7 @@ Output images from the generator:
 
 ### Training on CIFAR-10 images with added noise
 
-Noised CIFAR-10 images:
+CIFAR-10 images with added Gaussian noise:
 
 <img width="600" alt="dcgan 8 1" src="https://github.com/mclaughlinryan/DCGAN/assets/150348966/35ea7ece-5b6a-4e8b-a180-8f774343d2b3">
 
